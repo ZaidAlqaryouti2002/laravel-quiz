@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\lecturers;
 use Illuminate\Http\Request;
 
 class lecturersController extends Controller
@@ -11,7 +12,8 @@ class lecturersController extends Controller
      */
     public function index()
     {
-        //
+        $lecturers = lecturers::all();
+        return view('lecturers.index', compact('lecturers'));
     }
 
     /**
@@ -19,7 +21,8 @@ class lecturersController extends Controller
      */
     public function create()
     {
-        //
+        $lecturers = lecturers::all();
+        return view ('lecturers.create', compact('lecturers'));
     }
 
     /**
