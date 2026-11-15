@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('lecturers', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
+            $table->string('employee_number', 50)->unique();
+            $table->string('department_office_room', 50);
+            $table->string('photo');
+            $table->boolean('is_activated')->default(false);
             $table->timestamps();
         });
     }

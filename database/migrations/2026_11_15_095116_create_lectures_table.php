@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('lectures', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('course_id')->constrained('courses');
+            $table->string('title', 50)->unique();
+            $table->string('topic_summary', 50);
+            $table->string('hall_name', 50);
+            $table->dateTime('scheduled_at')->nullable();
             $table->timestamps();
         });
     }
